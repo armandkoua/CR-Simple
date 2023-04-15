@@ -19,7 +19,7 @@ namespace CR_Simple.Business
 
         public List<Personne> DoExecute()
         {
-            return this.personneRepository.GetPersonnes();            
+            return this.personneRepository.GetPersonnes().OrderBy( p => p.Nom).ToList();            
         }
     }
 }

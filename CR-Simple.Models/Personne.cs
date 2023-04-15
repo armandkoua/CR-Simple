@@ -1,16 +1,31 @@
 ﻿namespace CR_Simple.Models
 {
+    [Serializable]
     public class Personne
     {
-        public string    Nom { get; private set; } 
-        public string    Prenom { get; private set; }
-        public DateTime?    DateNaissance { get; private set; }
+        public int Id { get; set; }
+        public string    Nom { get;  set; } 
+        public string    Prenom { get;  set; }
+        public DateTime?    DateNaissance { get;  set; }
+
+        public Personne()
+        {
+            
+        }
 
         public Personne(string nom ,string prenom, DateTime? dateNaissance)
         {
             this.Nom = nom;
             this.DateNaissance = dateNaissance;
+            this.Prenom = prenom;            
+        }
+
+        public Personne(string nom, string prenom, DateTime? dateNaissance, int id)
+        {
+            this.Nom = nom;
+            this.DateNaissance = dateNaissance;
             this.Prenom = prenom;
+            this.Id = id;
         }
 
         public int Age

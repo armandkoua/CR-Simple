@@ -1,4 +1,5 @@
-﻿using CR_Simple.Data.Repository;
+﻿using CR_Simple.Business.Exceptions;
+using CR_Simple.Data.Repository;
 using CR_Simple.Models;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,10 @@ namespace CR_Simple.Business
 
         public Personne DoExecute(Personne personne )
         {
-
+            if(personne.Age > 150)
+            {
+                throw new TooOldException(personne.DateNaissance);
+            }
             personne = this.personneRepository.Create(personne);
             return personne;
         }
